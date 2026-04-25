@@ -74,15 +74,76 @@ def calcula_pontos_sequencia_baixa(lista):
             return 30
      return 0
 
+def calcula_pontos_full_house(lista):
+    full = 0 
+    trio = False
+    dupla = False 
+    for i in lista:
+        verifica = 0 
+        for j in range(len(lista)):
+            if i == lista[j]:
+                verifica += 1
+        if verifica == 3:
+            trio = True
+        elif verifica == 2:
+            dupla = True               
+        if verifica == 4:
+            trio = False
+                 
+    if trio == True and dupla == True:
+        soma = 0 
+        for i in range(len(lista)):
+            soma += lista[i]
+        return soma
+    return 0
+         
+
+def calcula_pontos_quadra(lista): 
+    quadra = 0 
+    quarteto = False
+    for i in lista:
+        verifica = 0 
+        for j in range(len(lista)):
+            if i == lista[j]:
+                verifica += 1
+        if verifica >= 4 :
+            quarteto = True        
+                 
+        if quarteto == True:
+            soma = 0 
+            for i in range(len(lista)):
+                soma += lista[i]
+            return soma
+    return 0
+
+def calcula_pontos_quina(lista):
+    quinteto = False
+    for i in lista:
+        verifica = 0 
+        for j in range(len(lista)):
+            if i == lista[j]:
+                verifica += 1
+        if verifica >= 5:
+            quinteto = True
+    if quinteto == True:
+        return 50 
+    return 0 
+    
+def calcula_pontos_regra_avancada(lista):
+    dic = {}
+    x = calcula_pontos_quina(lista)
+    y = calcula_pontos_quadra(lista)
+    z = calcula_pontos_full_house(lista)
+    w = calcula_pontos_sequencia_alta(lista)
+    v = calcula_pontos_sequencia_baixa(lista)
+    u = calcula_pontos_soma(lista)
+    dic ["cinco_iguais"] = x
+    dic["full_house"] = z
+    dic["quadra"] = y
+    dic["sem_combinacao"] = u
+    dic["sequencia_alta"] = w
+    dic["sequencia_baixa"] = v
+    return dic
 
 
 
-def calcula_pontos_full_house(
-
-
-
-
-
-
-    lista_grande =  [dados_rolados_novo, dados_no_estoque]
-    return lista_grande
