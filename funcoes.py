@@ -150,5 +150,11 @@ def calcula_pontos_regra_avancada(lista):
     dic["sequencia_baixa"] = v
     return dic
 
-
-
+def faz_jogada(lista, cat, cartela):
+    if cat == "1" or cat == "2" or cat == "3" or cat == "4" or cat == "5" or cat == "6":
+        rs = calcula_pontos_regra_simples(lista)
+        cartela["regra_simples"][int(cat)] = rs[int(cat)]
+    else: 
+        ra = calcula_pontos_regra_avancada(lista)
+        cartela["regra_avancada"][cat] = ra[cat]
+    return cartela
