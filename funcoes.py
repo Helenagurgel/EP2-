@@ -6,6 +6,53 @@ def rolar_dados(n):
         lista.append(r)
     return lista
 
+
+
+
+def guardar_dado(dados_rolados, dados_no_estoque, dado_para_guardar):
+    lista_grande = []
+    dados_rolados_novo = []
+    # for dado_para_guardar in range(len(dados_rolados)):
+    if dado_para_guardar in range(len(dados_rolados)):
+        dados_no_estoque.append(dados_rolados[dado_para_guardar])
+
+    for i in range(len(dados_rolados)):
+        if i != dado_para_guardar:
+            dados_rolados_novo.append(dados_rolados[i])
+
+    lista_grande =  [dados_rolados_novo, dados_no_estoque]
+    return lista_grande
+
+
+
+
+
+def remover_dado(dados_rolados, dados_no_estoque, dado_para_remover):
+    lista_grande = []
+    dados_no_estoque_novo = []
+    if dado_para_remover in range(len(dados_no_estoque)):
+        dados_rolados.append(dados_no_estoque[dado_para_remover])
+
+    for i in range(len(dados_no_estoque)):
+        if i != dado_para_remover:
+            dados_no_estoque_novo.append(dados_no_estoque[i])
+        
+        lista_grande = [dados_rolados, dados_no_estoque_novo]
+    return lista_grande
+
+
+
+def calcula_pontos_regra_simples(lista):
+    dic_pontos = {}
+    for i in range(1, 7):
+        soma = 0 
+        for j in lista:
+            if j == i:
+                soma += j
+        dic_pontos[i] = soma
+return dic_pontos
+
+
 def calcula_pontos_soma(lista):
     soma = 0 
     for i in range(len(lista)):
