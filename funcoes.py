@@ -50,7 +50,7 @@ def calcula_pontos_regra_simples(lista):
             if j == i:
                 soma += j
         dic_pontos[i] = soma
-return dic_pontos
+    return dic_pontos
 
 
 def calcula_pontos_soma(lista):
